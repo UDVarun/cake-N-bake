@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Admin Products</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+<aside class="admin-sidebar">
+
+<a href="dashboard.html">Dashboard</a>
+<a href="products.html">Products</a>
+
+</aside>
+
+<main class="admin-main">
+
+<h1>Manage Products</h1>
+
+<div class="admin-form">
+
+<input id="name" placeholder="Product Name">
+<input id="price" placeholder="Price">
+<input id="image" placeholder="Image Path">
+<input id="category" placeholder="Category">
+
+<button onclick="addProduct()">Add Product</button>
+
+</div>
+
+<table class="admin-table">
+
+<thead>
+
+<tr>
+<th>Name</th>
+<th>Price</th>
+<th>Category</th>
+<th>Action</th>
+</tr>
+
+</thead>
+
+<tbody id="admin-products"></tbody>
+
+</table>
+
+</main>
+
+</div>
+
+<script src="../js/products.js"></script>
+<script src="../js/admin-products.js"></script>
+
+</body>
+</html>

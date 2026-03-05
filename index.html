@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cake-N-Bake</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<header class="header">
+
+<div class="logo-container">
+<img src="css/img/logo.png" class="logo-img">
+<span class="logo-text">Cake-N-Bake</span>
+</div>
+
+<ul class="nav">
+<li><a href="#">Home</a></li>
+<li><a href="#store">Store</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+
+<div class="cart-icon" onclick="toggleCart()">
+🛒 <span id="cart-count">0</span>
+</div>
+
+</header>
+
+
+<section class="hero">
+
+<h1 class="hero-title">Fresh <span>Luxury</span> Bakery</h1>
+
+<p class="hero-sub">Handcrafted cakes baked daily</p>
+
+<a href="#store" class="hero-btn">Explore Store</a>
+
+</section>
+
+
+<section id="store" class="store">
+
+<h2 class="store-title">Premium Bakery Collection</h2>
+
+<div class="search-wrapper">
+<input id="search" class="search-input" placeholder="Search cakes, cupcakes, sweets...">
+<span class="search-icon">🔍</span>
+</div>
+
+<div class="filters">
+
+<button data-filter="all">All</button>
+<button data-filter="cake">Cakes</button>
+<button data-filter="cupcake">Cupcakes</button>
+<button data-filter="doughnut">Doughnuts</button>
+<button data-filter="sweet">Sweets</button>
+
+</div>
+
+<div id="products" class="products"></div>
+
+</section>
+
+
+<div id="cart" class="cart">
+
+<div class="cart-header">
+<h3>Your Cart</h3>
+<button class="cart-close" onclick="toggleCart()">✕</button>
+</div>
+
+<ul id="cart-items"></ul>
+
+<div class="cart-footer">
+<p>Total ₹<span id="cart-total">0</span></p>
+<a href="checkout.html" class="checkout-btn">Checkout</a>
+</div>
+
+</div>
+
+
+<script src="js/products.js"></script>
+<script src="js/main.js"></script>
+<script src="js/cart.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bakery Admin Dashboard</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="admin-container">
+
+<h1>Bakery Admin Dashboard</h1>
+
+<!-- STATS -->
+
+<div class="admin-stats">
+
+<div class="stat-card">
+
+<h3>Total Products</h3>
+
+<p id="total-products">0</p>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCT FORM -->
+
+<div class="admin-form">
+
+<input id="name" placeholder="Product Name">
+
+<input id="price" placeholder="Price">
+
+<input id="image" placeholder="Image Path (css/img/cake-1.jpeg)" oninput="previewImage()">
+
+<input id="category" placeholder="Category (cake/cupcake/sweet/doughnut)">
+
+<button onclick="addProduct()">Add Product</button>
+
+<button id="update-btn" onclick="updateProduct()" style="display:none">
+Update Product
+</button>
+
+</div>
+
+
+<!-- IMAGE PREVIEW -->
+
+<div class="image-preview">
+
+<img id="preview" src="" alt="preview">
+
+</div>
+
+
+<h2>Products</h2>
+
+<table class="admin-table">
+
+<thead>
+
+<tr>
+<th>Image</th>
+<th>Name</th>
+<th>Price</th>
+<th>Category</th>
+<th>Actions</th>
+</tr>
+
+</thead>
+
+<tbody id="admin-products"></tbody>
+
+</table>
+
+</div>
+
+
+<script src="js/products.js"></script>
+<script src="js/admin-products.js"></script>
+
+</body>
+
+</html>

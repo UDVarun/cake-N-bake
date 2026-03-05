@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Checkout | Cake-N-Bake</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="header">
+
+<div class="logo-container">
+
+<img src="css/img/logo.png" class="logo-img">
+
+<span class="logo-text">Cake-N-Bake</span>
+
+</div>
+
+<nav>
+
+<ul class="nav">
+
+<li><a href="index.html">Home</a></li>
+<li><a href="index.html#store">Store</a></li>
+<li><a href="contact.html">Contact</a></li>
+
+</ul>
+
+</nav>
+
+</header>
+
+
+
+<!-- ================= HERO ================= -->
+
+<section class="checkout-hero">
+
+<h1>Secure Checkout</h1>
+<p>Complete your order and enjoy fresh bakery desserts</p>
+
+</section>
+
+
+
+<!-- ================= CHECKOUT ================= -->
+
+<section class="checkout-container">
+
+
+<!-- CHECKOUT FORM -->
+
+<div class="checkout-box">
+
+<h2>Shipping Details</h2>
+
+<form id="checkout-form">
+
+<div class="checkout-grid">
+
+<input placeholder="Full Name" required>
+
+<input placeholder="Email Address" required>
+
+<input placeholder="Phone Number" required>
+
+<input placeholder="City" required>
+
+</div>
+
+<input placeholder="Full Address" required>
+
+<select required>
+
+<option>Cash on Delivery</option>
+<option>UPI Payment</option>
+<option>Credit / Debit Card</option>
+
+</select>
+
+<button type="submit">Place Order</button>
+
+<p id="order-msg"></p>
+
+</form>
+
+</div>
+
+
+
+<!-- ORDER SUMMARY -->
+
+<div class="order-summary">
+
+<h2>Order Summary</h2>
+
+<div id="summary-items" class="summary-items"></div>
+
+<div class="summary-pricing">
+
+<p>Subtotal <span id="summary-subtotal">₹0</span></p>
+
+<p>Delivery <span>₹40</span></p>
+
+<h3>Total <span id="summary-total">₹0</span></h3>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= SCRIPT ================= -->
+
+<script>
+
+const cart = JSON.parse(localStorage.getItem("cart")) || []
+
+const container = document.getElementById("summary-items")
+
+const subtotalEl = document.getElementById("summary-subtotal")
+
+const totalEl = document.getElementById("summary-total")
+
+let subtotal = 0
+
+
+
+if(cart.length === 0){
+
+container.innerHTML = "<p>Your cart is empty</p>"
+
+}else{
+
+cart.forEach(item=>{
+
+let div = document.createElement("div")
+
+div.className="summary-item"
+
+div.innerHTML = `
+
+<img src="${item.image}" class="summary-img">
+
+<div class="summary-details">
+
+<p class="summary-name">${item.name}</p>
+
+<p class="summary-price">₹${item.price}</p>
+
+</div>
+
+`
+
+container.appendChild(div)
+
+subtotal += Number(item.price)
+
+})
+
+}
+
+
+
+let delivery = 40
+
+subtotalEl.innerText = "₹"+subtotal
+
+totalEl.innerText = "₹"+(subtotal + delivery)
+
+
+
+document.getElementById("checkout-form").addEventListener("submit",e=>{
+
+e.preventDefault()
+
+localStorage.removeItem("cart")
+
+document.getElementById("order-msg").innerText="✅ Order Placed Successfully!"
+
+})
+
+</script>
+
+
+
+</body>
+</html>
